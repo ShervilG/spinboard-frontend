@@ -15,6 +15,8 @@ jobs:
         with:
           submodules: true
           fetch-depth: 10
+      - name: Copy Env Vars
+        run: node copyEnvVariables.js
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
