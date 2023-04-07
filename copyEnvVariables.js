@@ -4,7 +4,7 @@ const envDirectory = "src/environments";
 const fileName = "environment.ts";
 const prodFileName = "environment.prod.ts";
 
-const content = `${process.env.SPINBOARD_BASE_URL}`;
+const content = process.env.SPINBOARD_BASE_URL;
 
 fs.access(envDirectory, fs.constants.F_OK, (err) => {
     if (err) {
