@@ -15,9 +15,6 @@ jobs:
         with:
           submodules: true
           fetch-depth: 10
-      - name: Copy Environment Variables
-        id: envarcpy
-        run: sed -i.bak 's|SPINBOARD_BASE_URL_ACTUAL|${{ env.SPINBOARD_BASE_URL }}|g .src/environments/environment.ts'
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
