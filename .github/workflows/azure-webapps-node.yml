@@ -18,13 +18,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18
-      - name: Copy Env Stuff
+      - name: Copy Env Variables
         env:
           SPINBOARD_BASE_URL: ${{ env.SPINBOARD_BASE_URL }}
-        run:  |
-          touch .env
-          echo SPINBOARD_BASE_URL=${{ secrets.SPINBOARD_BASE_URL }} >> .env
-          node ./copyEnvVariables.js
+        run: |
+          sed -i -e 's|{SPINBOARD_BASE_URL}|${SPINBOARD_BASE_URL}|g' src/environments/environment.ts
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
