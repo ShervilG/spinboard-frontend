@@ -20,7 +20,7 @@ jobs:
           node-version: 18
       - name: Copy Env Variables
         env:
-          SPINBOARD_BASE_URL: ${{ env.SPINBOARD_BASE_URL }}
+          SPINBOARD_BASE_URL: ${{ secrets.SPINBOARD_BASE_URL }}
         run: |
           echo "export const environment = { production: true, SPINBOARD_BASE_URL: '${SPINBOARD_BASE_URL}' }" > src/environments/environment.prod.ts
           echo "export const environment = { production: false, SPINBOARD_BASE_URL: '${SPINBOARD_BASE_URL}' }" > src/environments/environment.ts
