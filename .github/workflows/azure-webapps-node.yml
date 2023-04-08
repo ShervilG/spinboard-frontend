@@ -22,7 +22,7 @@ jobs:
         env:
           SPINBOARD_BASE_URL: ${{ env.SPINBOARD_BASE_URL }}
         run: |
-          sed -i -e 's/{SPINBOARD_BASE_URL}/${{ env.SPINBOARD_BASE_URL }}/g' src/environments/environment.ts
+          sed -i -e 's/{SPINBOARD_BASE_URL}/'"$SPINBOARD_BASE_URL"'/g' src/environments/environment.ts
           cat src/environments/environment.ts
       - name: Build And Deploy
         id: builddeploy
